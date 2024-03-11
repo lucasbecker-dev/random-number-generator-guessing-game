@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random rng = new Random();
-        int secretNumber = rng.nextInt(1,101);
+        int secretNumber = rng.nextInt(1, 101);
         int remainingGuesses = 5;
         int playerGuess;
         boolean playerWon = false;
