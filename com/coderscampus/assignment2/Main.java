@@ -15,18 +15,21 @@ public class Main {
             try {
                 System.out.print("Pick a number between 1 and 100: ");
                 playerGuess = Integer.parseInt(scanner.nextLine());
+
                 if (playerGuess < 1 || playerGuess > 100) {
                     System.out.println("Your guess is not between 1 and 100, please try again");
-                } else if (playerGuess < secretNumber) {
-                    --remainingGuesses;
-                    System.out.println("Please pick a higher number. Remaining guesses: " + remainingGuesses);
-                } else if (playerGuess > secretNumber) {
-                    --remainingGuesses;
-                    System.out.println("Please pick a lower number. Remaining guesses: " + remainingGuesses);
-                } else {
+                    continue;
+                }
+
+                --remainingGuesses;
+                if (playerGuess == secretNumber) {
                     System.out.println("You win!");
                     playerWon = true;
                     break;
+                } else if (playerGuess < secretNumber) {
+                    System.out.println("Please pick a higher number. Remaining guesses: " + remainingGuesses);
+                } else {
+                    System.out.println("Please pick a lower number. Remaining guesses: " + remainingGuesses);
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Must be a whole number!");
